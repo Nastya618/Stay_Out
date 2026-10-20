@@ -1,308 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/fonts.css">
-        <title>Stay out</title>
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stay Out Tracker</title>
+  
+  <!-- Путь к фавиконке из папки icons -->
+  <link rel="icon" type="image/jpeg" href="icons/favicon.jpg">
+  
 
-    <body>
-        <div class="container">
-            <header>
-                <div class="data"></div>
-                <div class="logo">
-                    <img class="img_logo" src="img/logo1.webp" alt="">
-                </div>
-                <div class="header_button">
-                    <button class="header_reset">СБРОС</button>
-                </div>
-            </header>
-            <div class="main_container">
-                <table>
-                    <tr class="head_tr">
-                        <td class="head_td main_td">
-                            <p>ПЕРСОНАЖ/ВРЕМЯ АКТИВАЦИИ</p>
-                        </td>
-                        <td class="head_td">
-                            <p>ХИМКА</p>
-                        </td>
-                        <td class="head_td">
-                            <p>ЛЕС</p>
-                        </td>
-                        <td class="head_td">
-                            <p>ПРОВОДНИК</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="main_td">
-                            <p>Фритюрин</p>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="main_td">
-                            <p>Трейзер</p>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="main_td">
-                            <p>Дед_Модор</p>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="main_td">
-                            <p>Nieve-618</p>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="main_td">
-                            <p>Nasty_Dog</p>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="main_td">
-                            <p>Iwanish</p>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="td_check">
-                                <div class="reach">
-                                    <img class="img_reach" src="img/reach.png" alt="">
-                                    <input type="checkbox" name="chbox_reach">
-                                </div>
-                                <span></span>
-                                <div class="give">
-                                    <img class="img_give" src="img/give.png" alt="">
-                                    <input type="checkbox" name="chbox_give">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div class="button">
-                    <button class="reset">СБРОС</button>
-                </div>
-            </div>
+  <!-- Встроенное автономное ядро Bootstrap CSS -->
+  <style>
+    :root{--bs-breakpoint-xs:0;--bs-breakpoint-sm:576px;--bs-breakpoint-md:768px;--bs-breakpoint-lg:992px;--bs-breakpoint-xl:1200px;--bs-breakpoint-xxl:1400px}
+    .container{width:100%;padding-right:var(--bs-gutter-x,.75rem);padding-left:var(--bs-gutter-x,.75rem);margin-right:auto;margin-left:auto}
+    @media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}
+    .d-flex{display:flex!important}.justify-content-center{justify-content:center!important}.justify-content-between{justify-content:space-between!important}.align-items-center{align-items:center!important}.text-center{text-align:center!important}
+    .mb-3{margin-bottom:1rem!important}.mb-4{margin-bottom:1.5rem!important}.mt-2{margin-top:0.5rem!important}.mt-3{margin-top:1rem!important}.mt-4{margin-top:1.5rem!important}.mt-5{margin-top:2rem!important}.mb-0{margin-bottom:0!important}
+    .pt-1{padding-top:0.5rem!important}.py-4{padding-top:1.5rem!important;padding-bottom:1.5rem!important}.py-2{padding-top:.5rem!important;padding-bottom:.5rem!important}
+    .gap-3{gap:1rem!important}
+    .w-100{width:100%!important}.align-middle{vertical-align:middle!important}
+    .table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .table{width:100%;margin-bottom:1rem;vertical-align:top;border-color:var(--bs-table-border-color)}
+  </style>
+  
+  <!-- Подключение кастомных стилей из папки css -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="main-overlay">
+    <div class="container pt-1 main-container">
+      
+      <!-- Шапка: Обрезанный вытянутый логотип и крупная кнопка сброса справа -->
+      <div class="header-zone mb-3">
+        <button class="btn btn-header reset-btn">СБРОСИТЬ</button>
+        <div class="logo-crop-container">
+          <img src="img/logo.jpg" alt="Stay Out" class="game-logo-img">
         </div>
-    </body>
+        <button class="btn btn-header log-in-btn">ОБНОВИТЬ</button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center tracker-table mb-0" id="mainTrackerTable">
+          <thead id="tableHead">
+            <!-- Сюда JS вставит заголовки зон -->
+          </thead>
+          <tbody id="tableBody">
+            <!-- Сюда JS вставит строки персонажей -->
+          </tbody>
+        </table>
+      </div>
+
+            <!-- Кнопки управления структурой таблицы с исправлением маркеров -->
+      <div class="d-flex justify-content-center gap-3 mt-3 pt-2">
+        
+        <!-- Выпадающий список: Персонажи -->
+        <div class="dropdown">
+          <button class="btn-structure dropdown-toggle" type="button" id="charactersDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            Управление Персонажами
+          </button>
+          <!-- Добавлен класс list-unstyled для удаления белых точек -->
+          <ul class="dropdown-menu dropdown-menu-dark list-unstyled" aria-labelledby="charactersDropdown">
+            <li><button class="dropdown-item" id="addCharacterBtn">➕ Добавить персонажа</button></li>
+            <li><button class="dropdown-item" id="editCharacterBtn">✏️ Переименовать персонажа</button></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item text-danger" id="deleteCharacterBtn">❌ Удалить персонажа</button></li>
+          </ul>
+        </div>
+
+        <!-- Выпадающий список: Зоны -->
+        <div class="dropdown">
+          <button class="btn-structure dropdown-toggle" type="button" id="zonesDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            Управление Зонами
+          </button>
+          <!-- Добавлен класс list-unstyled для удаления белых точек -->
+          <ul class="dropdown-menu dropdown-menu-dark list-unstyled" aria-labelledby="zonesDropdown">
+            <li><button class="dropdown-item" id="addZoneBtn">➕ Добавить новую зону</button></li>
+            <li><button class="dropdown-item" id="editZoneBtn">✏️ Переименовать зону</button></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item text-danger" id="deleteZoneBtn">❌ Удалить зону</button></li>
+          </ul>
+        </div>
+
+      </div>
+
+            <!-- Сталкерский калькулятор времени -->
+      <div class="time-calculator-card mt-5 mb-0 text-center">
+        <h4 class="calc-title mt-2">⏱️ ХРОНОМЕТР ЗОНЫ</h4>
+        <p class="calc-subtitle">Введите текущее время на вашем КПК, чтобы рассчитать фазы дня и ночи:</p>
+        
+        <div class="calc-inputs-row py-2">
+          <div class="time-input-group">
+            <input type="number" id="calcHour" min="0" max="23" placeholder="ЧЧ" class="form-control calc-input">
+            <span class="time-separator">:</span>
+            <input type="number" id="calcMinute" min="0" max="59" placeholder="ММ" class="form-control calc-input">
+          </div>
+          <button id="btnSetGameTime" class="btn-structure sync-btn py-2">Синхронизировать</button>
+        </div>
+
+        <!-- Результаты расчетов с таймерами -->
+        <div class="calc-results-grid mt-3">
+          <div class="result-box">
+            <span class="phase-title text-warning">☀️ БЛИЖАЙШИЙ ПОЛДЕНЬ (12:00)</span>
+            <div id="noonCountdown" class="countdown-timer">--:--:--</div>
+          </div>
+          <div class="result-box">
+            <span class="phase-title text-info">🌙 БЛИЖАЙШАЯ ПОЛНОЧЬ (00:00)</span>
+            <div id="midnightCountdown" class="countdown-timer">--:--:--</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Модальное окно синхронизации -->
+  <div id="updateModal" class="custom-modal">
+    <div class="modal-content-box">
+      <button id="btnCloseModal" class="btn-modal-close-x" aria-label="Закрыть">&times;</button>
+      <h3 class="modal-title">СИНХРОНИЗАЦИЯ ДАННЫХ</h3>
+      <p class="modal-text">Выберите необходимое действие с сервером для&nbspтекущего&nbspсостояния&nbspтрекера:</p>
+      <div class="modal-actions-row">
+        <button id="btnSaveServer" class="btn btn-modal">СОХРАНИТЬ НА СЕРВЕР</button>
+        <button id="btnLoadServer" class="btn btn-modal">ЗАГРУЗИТЬ С СЕРВЕРА</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
