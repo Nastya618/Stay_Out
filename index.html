@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stay Out Tracker</title>
   
-  <!-- Путь к фавиконке из папки icons -->
   <link rel="icon" type="image/jpeg" href="icons/favicon.jpg">
   
 
-  <!-- Встроенное автономное ядро Bootstrap CSS -->
   <style>
     :root{--bs-breakpoint-xs:0;--bs-breakpoint-sm:576px;--bs-breakpoint-md:768px;--bs-breakpoint-lg:992px;--bs-breakpoint-xl:1200px;--bs-breakpoint-xxl:1400px}
     .container{width:100%;padding-right:var(--bs-gutter-x,.75rem);padding-left:var(--bs-gutter-x,.75rem);margin-right:auto;margin-left:auto}
@@ -20,10 +18,9 @@
     .gap-3{gap:1rem!important}
     .w-100{width:100%!important}.align-middle{vertical-align:middle!important}
     .table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .table{width:100%;margin-bottom:1rem;vertical-align:top;border-color:var(--bs-table-border-color)}
+    .table{width:100%;margin-bottom:1rem;vertical-align:top;border-color:var(--bs-table-border-color)}.fw-bold{font-weight: 700;}
   </style>
   
-  <!-- Подключение кастомных стилей из папки css -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,7 +28,6 @@
   <div class="main-overlay">
     <div class="container pt-1 main-container">
       
-      <!-- Шапка: Обрезанный вытянутый логотип и крупная кнопка сброса справа -->
       <div class="header-zone mb-3">
         <button class="btn btn-header reset-btn">СБРОСИТЬ</button>
         <div class="logo-crop-container">
@@ -43,23 +39,18 @@
       <div class="table-responsive">
         <table class="table table-bordered align-middle text-center tracker-table mb-0" id="mainTrackerTable">
           <thead id="tableHead">
-            <!-- Сюда JS вставит заголовки зон -->
           </thead>
           <tbody id="tableBody">
-            <!-- Сюда JS вставит строки персонажей -->
           </tbody>
         </table>
       </div>
 
-            <!-- Кнопки управления структурой таблицы с исправлением маркеров -->
       <div class="d-flex justify-content-center gap-3 mt-3 pt-2">
         
-        <!-- Выпадающий список: Персонажи -->
         <div class="dropdown">
           <button class="btn-structure dropdown-toggle" type="button" id="charactersDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
             Управление Персонажами
           </button>
-          <!-- Добавлен класс list-unstyled для удаления белых точек -->
           <ul class="dropdown-menu dropdown-menu-dark list-unstyled" aria-labelledby="charactersDropdown">
             <li><button class="dropdown-item" id="addCharacterBtn">➕ Добавить персонажа</button></li>
             <li><button class="dropdown-item" id="editCharacterBtn">✏️ Переименовать персонажа</button></li>
@@ -68,12 +59,10 @@
           </ul>
         </div>
 
-        <!-- Выпадающий список: Зоны -->
         <div class="dropdown">
           <button class="btn-structure dropdown-toggle" type="button" id="zonesDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
             Управление Зонами
           </button>
-          <!-- Добавлен класс list-unstyled для удаления белых точек -->
           <ul class="dropdown-menu dropdown-menu-dark list-unstyled" aria-labelledby="zonesDropdown">
             <li><button class="dropdown-item" id="addZoneBtn">➕ Добавить новую зону</button></li>
             <li><button class="dropdown-item" id="editZoneBtn">✏️ Переименовать зону</button></li>
@@ -84,7 +73,6 @@
 
       </div>
 
-            <!-- Сталкерский калькулятор времени -->
       <div class="time-calculator-card mt-5 mb-0 text-center">
         <h4 class="calc-title mt-2">⏱️ ХРОНОМЕТР ЗОНЫ</h4>
         <p class="calc-subtitle">Введите текущее время на вашем КПК, чтобы рассчитать фазы дня и ночи:</p>
@@ -98,15 +86,20 @@
           <button id="btnSetGameTime" class="btn-structure sync-btn py-2">Синхронизировать</button>
         </div>
 
-        <!-- Результаты расчетов с таймерами -->
         <div class="calc-results-grid mt-3">
           <div class="result-box">
             <span class="phase-title text-warning">☀️ БЛИЖАЙШИЙ ПОЛДЕНЬ (12:00)</span>
             <div id="noonCountdown" class="countdown-timer">--:--:--</div>
+            <div id="noonRealTime" class="real-time-arrival">
+              В реальном мире: <span class="fw-bold" id="noonTimeValue">--:--</span>
+            </div> 
           </div>
           <div class="result-box">
             <span class="phase-title text-info">🌙 БЛИЖАЙШАЯ ПОЛНОЧЬ (00:00)</span>
             <div id="midnightCountdown" class="countdown-timer">--:--:--</div>
+            <div id="midnightRealTime" class="real-time-arrival">
+              В реальном мире: <span class="fw-bold" id="midnightTimeValue">--:--</span>
+            </div> 
           </div>
         </div>
       </div>
@@ -114,7 +107,6 @@
     </div>
   </div>
 
-  <!-- Модальное окно синхронизации -->
   <div id="updateModal" class="custom-modal">
     <div class="modal-content-box">
       <button id="btnCloseModal" class="btn-modal-close-x" aria-label="Закрыть">&times;</button>

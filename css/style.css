@@ -125,12 +125,10 @@ body {
   border-bottom: none !important;
 }
 
-/* Скругляем нижний левый угол (Имя последнего персонажа) */
 .tracker-table tr:last-child td:first-child {
   border-bottom-left-radius: 20px !important;
 }
 
-/* Скругляем нижний правый угол (Самый последний чекбокс в таблице) */
 .tracker-table tr:last-child td:last-child {
   border-bottom-right-radius: 20px !important;
 }
@@ -283,7 +281,6 @@ body {
   background-color: #e5e5e5;
 }
 
-/* Кнопки настройки структуры таблицы */
 .btn-structure {
   background-color: var(--background-color);
   color: #ffffff;
@@ -302,19 +299,18 @@ body {
   border-color: #ffffff;
 }
 
-/* Кастомизация темного меню Bootstrap */
 .dropdown-menu-dark {
-  position: absolute; /* Гарантирует правильное наложение поверх других элементов */
+  position: absolute; 
   background-color: var(--background-drop-color) !important;
   border: 1px solid var(--border-color) !important;
   box-shadow: 0 8px 16px rgba(0,0,0,0.6);
-  z-index: 1050; /* Поднимает меню выше таблицы и кнопок */
-  min-width: 240px; /* Фиксированная аккуратная ширина плашки */
+  z-index: 1050; 
+  min-width: 240px;
 }
 
 .dropdown-item {
   font-size: 0.9rem;
-  padding: 10px 20px; /* Сделали отступы внутри пунктов меню более просторными */
+  padding: 10px 20px;
   cursor: pointer;
   background: none;
   border: none;
@@ -329,32 +325,27 @@ body {
   color: #ffffff !important;
 }
 
-/* Разделительная линия внутри меню */
 .dropdown-divider {
   border-top: 1px solid var(--border-color);
   margin: 6px 0;
 }
 
-/* Стиль стрелочки Bootstrap */
 .dropdown-toggle::after {
   margin-left: 0.55em;
   vertical-align: 0.255em;
 }
 
-/* Принудительное скрытие меню по умолчанию (защита от сбоев JS) */
 .dropdown-menu {
   display: none;
-  list-style: none !important; /* Убирает маркеры-точки */
-  padding-left: 0 !important;   /* Убирает внутренний отступ от маркеров */
+  list-style: none !important; 
+  padding-left: 0 !important;
   margin: 0;
 }
 
-/* Показываем меню только тогда, когда активен класс .show */
 .dropdown-menu.show {
   display: block !important;
 }
 
-/* Карта калькулятора времени */
 .time-calculator-card {
   background-color: var(--background-dark-color);
   border: 2px solid var(--border-color);
@@ -378,7 +369,6 @@ body {
   margin-bottom: 15px;
 }
 
-/* Строка ввода времени */
 .calc-inputs-row {
   display: flex;
   align-items: center;
@@ -408,7 +398,6 @@ body {
   border-radius: 8px !important; 
 }
 
-/* Убираем стрелочки у инпутов */
 .calc-input::-webkit-outer-spin-button,
 .calc-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -427,7 +416,6 @@ body {
   min-height: 42px;
 }
 
-/* Сетка результатов */
 .calc-results-grid {
   display: flex;
   gap: 15px;
@@ -456,4 +444,10 @@ body {
   font-weight: bold;
   color: var(--main-color);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  margin-bottom: 5px;
+}
+
+.real-time-arrival {
+  font-size: 0.9rem; 
+  color: #aaa;
 }

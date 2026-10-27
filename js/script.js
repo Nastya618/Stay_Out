@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // === ПЕРЕМЕННЫЕ ИНТЕРФЕЙСА ===
   const updateBtn = document.querySelector('.log-in-btn');
   const modal = document.getElementById('updateModal');
   const closeModalBtn = document.getElementById('btnCloseModal');
@@ -12,14 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const databaseURL = 'https://stayoutdb-default-rtdb.firebaseio.com/tracker.json';
 
-  // Базовая структура (если в облаке пока пусто)
   let trackerData = {
     columns: ["Химка", "Лес", "Проводник"],
     rows: ["Фритюрин", "Трейзер", "Дед_Модор", "Nieve-618", "Nasty_Dog", "Iwanish"],
     states: {}
   };
 
-  // === ФУНКЦИЯ ДИНАМИЧЕСКОЙ ОТРИСОВКИ ТАБЛИЦЫ ===
   function renderTable() {
     tableHead.innerHTML = '';
     tableBody.innerHTML = '';
@@ -56,17 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
       tr.appendChild(tdName);
 
       trackerData.columns.forEach(zone => {
-        const tdGive = document.createElement('td');
-        tdGive.style.width = singleColumnWidth;
-        const keyGive = `${char}_${zone}_give`.replace(/\s+/g, '_');
-        tdGive.innerHTML = `
-          <div class="cell-content">
-            <span class="table-icon icon-give"></span>
-            <input type="checkbox" name="${keyGive}" class="form-check-input custom-checkbox" ${trackerData.states[keyGive] ? 'checked' : ''}>
-          </div>
-        `;
-        tr.appendChild(tdGive);
-
         const tdReach = document.createElement('td');
         tdReach.style.width = singleColumnWidth;
         const keyReach = `${char}_${zone}_reach`.replace(/\s+/g, '_');
@@ -77,6 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `;
         tr.appendChild(tdReach);
+
+        const tdGive = document.createElement('td');
+        tdGive.style.width = singleColumnWidth;
+        const keyGive = `${char}_${zone}_give`.replace(/\s+/g, '_');
+        tdGive.innerHTML = `
+          <div class="cell-content">
+            <span class="table-icon icon-give"></span>
+            <input type="checkbox" name="${keyGive}" class="form-check-input custom-checkbox" ${trackerData.states[keyGive] ? 'checked' : ''}>
+          </div>
+        `;
+        tr.appendChild(tdGive);
       });
 
       tableBody.appendChild(tr);
@@ -89,10 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================================================================
-  // === ЛОГИКА ВЫПАДАЮЩИХ СПИСКОВ (6 КНОПОК СТРУКТУРЫ) ===
-
-  // 1. ПЕРСОНАЖИ: Добавление нового сталкера
   document.getElementById('addCharacterBtn').addEventListener('click', () => {
     const newChar = prompt('Введите имя нового персонажа:');
     if (newChar && newChar.trim() !== '') {
@@ -102,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. ПЕРСОНАЖИ: Переименование (с переносом сохраненных галочек на новое имя)
   document.getElementById('editCharacterBtn').addEventListener('click', () => {
     if (!trackerData.rows || trackerData.rows.length === 0) return alert('Список персонажей пуст.');
     
@@ -115,14 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const newName = prompt(`Изменить имя персонажа "${currentName}" на:`, currentName);
       
       if (newName && newName.trim() !== '' && newName.trim() !== currentName) {
-        // Умный перенос галочек: перезаписываем ключи в объекте состояний под новое имя
         trackerData.columns.forEach(zone => {
           ['give', 'reach'].forEach(type => {
             const oldKey = `${currentName.replace(/\s+/g, '_')}_${zone}_${type}`;
             const newKey = `${newName.trim().replace(/\s+/g, '_')}_${zone}_${type}`;
             if (trackerData.states[oldKey] !== undefined) {
               trackerData.states[newKey] = trackerData.states[oldKey];
-              delete trackerData.states[oldKey]; // Стираем старое имя из памяти
+              delete trackerData.states[oldKey];
             }
           });
         });
@@ -132,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. ПЕРСОНАЖИ: Удаление строки
   document.getElementById('deleteCharacterBtn').addEventListener('click', () => {
     if (!trackerData.rows || trackerData.rows.length === 0) return alert('Список персонажей пуст.');
     
@@ -148,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. ЗОНЫ: Добавление новой локации (двух колонок)
   document.getElementById('addZoneBtn').addEventListener('click', () => {
     const newZone = prompt('Введите название новой игровой зоны (например, Любеч):');
     if (newZone && newZone.trim() !== '') {
@@ -158,7 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 5. ЗОНЫ: Переименование столбца
   document.getElementById('editZoneBtn').addEventListener('click', () => {
     if (!trackerData.columns || trackerData.columns.length === 0) return alert('Список зон пуст.');
     
@@ -177,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 6. ЗОНЫ: Удаление столбца
   document.getElementById('deleteZoneBtn').addEventListener('click', () => {
     if (!trackerData.columns || trackerData.columns.length === 0) return alert('Список зон пуст.');
     
@@ -193,9 +180,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // =========================================================================
-  // === СЛУШАТЕЛИ КНОПОК СБРОСИТЬ И ПОПАПА ОБНОВИТЬ ===
-  
   document.querySelectorAll('.reset-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.custom-checkbox').forEach(cb => cb.checked = false);
@@ -207,10 +191,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModalBtn.addEventListener('click', () => modal.classList.remove('show'));
   modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
 
-  // =========================================================================
-  // === ОБМЕН ДАННЫМИ С FIREBASE ОБЛАКОМ ===
-
-  // Отправка (Сохранить на сервер)
   saveServerBtn.addEventListener('click', async () => {
     try {
       const response = await fetch(databaseURL, {
@@ -226,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('show');
   });
 
-  // Загрузка (Загрузить с сервера)
   loadServerBtn.addEventListener('click', async () => {
     try {
       const response = await fetch(databaseURL);
@@ -244,42 +223,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
      modal.classList.remove('show');
   });
-// Первичный автоматический рендер таблицы при открытии сайта
     renderTable();
 });
-
-  // =========================================================================
-  // === КАЛЬКУЛЯТОР ВНУТРИИГРОВОГО ВРЕМЕНИ ===
 
   const calcHourInput = document.getElementById('calcHour');
   const calcMinuteInput = document.getElementById('calcMinute');
   const btnSetGameTime = document.getElementById('btnSetGameTime');
   const noonCountdown = document.getElementById('noonCountdown');
   const midnightCountdown = document.getElementById('midnightCountdown');
+  const noonValueTime = document.getElementById('noonValueTime');
+  const midnightValueTime = document.getElementById('midnightValueTime');
 
-  let baseRealTime = null; // Реальное время ввода (в миллисекундах)
-  let baseGameMinutes = null; // Внутриигровое время на тот момент (в минутах суток)
 
-  // Константы перерасчета времени
+  let baseRealTime = null;
+  let baseGameMinutes = null; 
+
   const REAL_SECONDS_PER_GAME_HOUR = 525;
-  const REAL_SECONDS_PER_GAME_MINUTE = REAL_SECONDS_PER_GAME_HOUR / 60; // 8.75 секунд
+  const REAL_SECONDS_PER_GAME_MINUTE = REAL_SECONDS_PER_GAME_HOUR / 60;
 
   btnSetGameTime.addEventListener('click', () => {
     let hours = parseInt(calcHourInput.value);
     let minutes = parseInt(calcMinuteInput.value);
 
-    // Валидация полей
     if (isNaN(hours) || hours < 0 || hours > 23 || isNaN(minutes) || minutes < 0 || minutes > 59) {
       alert('Укажите корректное время на КПК (Часы от 0 до 23, Минуты от 0 до 59)');
       return;
     }
 
-    // Запоминаем точку отсчета: реальное время клика и введенные игровые минуты
     baseRealTime = Date.now();
     baseGameMinutes = (hours * 60) + minutes;
   });
 
-  // Функция форматирования секунд в ЧЧ:ММ:СС
   function formatRealTime(totalSeconds) {
     if (totalSeconds <= 0) return "00:00:00";
     let hrs = Math.floor(totalSeconds / 3600);
@@ -288,30 +262,34 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   }
 
-  // Обновление таймеров каждую секунду
+  function formatAbsoluteTime(futureDate) {
+    let hrs = futureDate.getHours().toString().padStart(2, '0');
+    let mins = futureDate.getMinutes().toString().padStart(2, '0');
+    return `${hrs}:${mins}`;
+  }
+
+
   setInterval(() => {
-    // Если время еще не синхронизировано, ничего не считаем
     if (baseRealTime === null || baseGameMinutes === null) return;
 
-    // Сколько реальных секунд прошло с момента ввода времени
     const realSecondsPassed = (Date.now() - baseRealTime) / 1000;
-
-    // Переводим прошедшие секунды в прошедшие игровые минуты
     const gameMinutesPassed = realSecondsPassed / REAL_SECONDS_PER_GAME_MINUTE;
-
-    // Текущее точное игровое время в минутах от начала суток
+    
     let currentGameMinutes = (baseGameMinutes + gameMinutesPassed) % 1440;
-
-    // Расчет до Полдня (12:00 = 720 минут)
     let minutesToNoon = 720 - currentGameMinutes;
-    if (minutesToNoon <= 0) minutesToNoon += 1440; // Если полдень уже прошел, ждем следующий день
+    if (minutesToNoon <= 0) minutesToNoon += 1440;
     let realSecondsToNoon = minutesToNoon * REAL_SECONDS_PER_GAME_MINUTE;
     noonCountdown.textContent = formatRealTime(realSecondsToNoon);
 
-    // Расчет до Полночи (00:00 = 1440 или 0 минут)
     let minutesToMidnight = 1440 - currentGameMinutes;
     if (minutesToMidnight <= 0) minutesToMidnight += 1440;
     let realSecondsToMidnight = minutesToMidnight * REAL_SECONDS_PER_GAME_MINUTE;
     midnightCountdown.textContent = formatRealTime(realSecondsToMidnight);
+
+    const noonTargetDate = new Date(Date.now() + realSecondsToNoon * 1000);
+    noonTimeValue.textContent = `${formatAbsoluteTime(noonTargetDate)}`;
+
+    const midnightTargetDate = new Date(Date.now() + realSecondsToMidnight * 1000);
+    midnightTimeValue.textContent = `${formatAbsoluteTime(midnightTargetDate)}`;
 
   }, 1000);
